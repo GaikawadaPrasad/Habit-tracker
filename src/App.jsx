@@ -22,6 +22,11 @@ function App() {
         />
 
         <Route
+          path="/home"
+          element={currentUser ? <Home /> : <Login />}
+        />
+
+        <Route
           path="/login"
           element={currentUser ? <Home /> : <Login />}
         />
@@ -29,6 +34,12 @@ function App() {
         <Route
           path="/signin"
           element={currentUser ? <Home /> : <Signin />}
+        />
+
+        {/* Catch-all: redirect unknown routes to dashboard */}
+        <Route
+          path="*"
+          element={currentUser ? <Home /> : <Login />}
         />
       </Routes>
     </>
